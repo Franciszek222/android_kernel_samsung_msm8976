@@ -35,7 +35,7 @@
 #include <linux/serial_8250.h>
 #include <asm/io.h>
 #include <asm/serial.h>
-#ifdef CONFIG_FIX_EARLYCON_MEM
+#ifdef CONFIG_FIX_EARLYCON_MEM_F
 #include <asm/pgtable.h>
 #include <asm/fixmap.h>
 #endif
@@ -167,7 +167,7 @@ static int __init parse_options(struct early_serial8250_device *device,
 					       &options, 0);
 		if (mmio32)
 			port->regshift = 2;
-#ifdef CONFIG_FIX_EARLYCON_MEM
+#ifdef CONFIG_FIX_EARLYCON_MEM_F
 		set_fixmap_nocache(FIX_EARLYCON_MEM_BASE,
 					port->mapbase & PAGE_MASK);
 		port->membase =
