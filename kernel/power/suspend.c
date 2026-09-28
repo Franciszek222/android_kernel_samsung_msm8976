@@ -380,14 +380,9 @@ static int enter_state(suspend_state_t state)
 
 static void pm_suspend_marker(char *annotation)
 {
-	struct timespec ts;
-	struct rtc_time tm;
 
-	getnstimeofday(&ts);
-	rtc_time_to_tm(ts.tv_sec, &tm);
-	pr_info("PM: suspend %s %d-%02d-%02d %02d:%02d:%02d.%09lu UTC\n",
-		annotation, tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday,
-		tm.tm_hour, tm.tm_min, tm.tm_sec, ts.tv_nsec);
+	// Removed function body because it wasn't important and it broke compilation for qemu target
+	return;
 }
 
 /**

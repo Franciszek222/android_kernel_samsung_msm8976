@@ -63,8 +63,10 @@ struct dpm_watchdog {
 	struct timer_list	timer;
 };
 
+#ifdef CONFIG_ARCH_MSM
 #ifdef CONFIG_SEC_PM
 extern int wakeup_gpio_irq_flag;
+#endif
 #endif
 
 static int async_error;
@@ -560,8 +562,10 @@ static int device_resume_early(struct device *dev, pm_message_t state)
 	TRACE_DEVICE(dev);
 	TRACE_RESUME(0);
 
+#ifdef CONFIG_ARCH_MSM
 #ifdef CONFIG_SEC_PM
 	wakeup_gpio_irq_flag = 0;
+#endif
 #endif
 
 	if (dev->power.syscore)
